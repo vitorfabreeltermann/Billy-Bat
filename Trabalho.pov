@@ -270,6 +270,60 @@ union{
     translate x*-240
 }
 
+//prédio de tras roxo
+union{
+
+    difference{
+        box {
+            <50, 85, 25>,  // Near lower left corner
+            <55, 130, -0.35>   // Far upper right corner
+        }
+      
+        }
+        
+        texture {
+            pigment { color rgb <0.54,0.16,0.88>}               // Corzinha do prédio
+            finish {
+                diffuse 1
+            }
+            normal {
+                wrinkles 0.5
+                scale 0.3
+            }
+            scale 0.5
+        } 
+    rotate y*+82
+    translate z*340
+    translate x*-180
+}
+
+//prédio de tras roxo TOPO
+union{
+
+    difference{
+        box {
+            <18, 140, 20>,  // Near lower left corner
+            <30, 160, -0.35>   // Far upper right corner
+        }
+      
+        }
+        
+        texture {
+            pigment { color rgb <0.54,0.16,0.88>}               // Corzinha do prédio
+            finish {
+                diffuse 1
+            }
+            normal {
+                wrinkles 0.5
+                scale 0.3
+            }
+            scale 0.5
+        } 
+    rotate y*+82
+    translate z*340
+    translate x*-190
+}    
+
 //bolas de luz
 light_source
 { <-30,5, 70> color rgb <1, 1, 0.5>
