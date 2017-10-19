@@ -218,7 +218,9 @@ union{
     #for (CntrX, 0, 3, 1)
         #for (CntrY, 0, 7, 1)
             //vidros janelas
-            #if (!((CntrX = 2 & CntrY = 1) | (CntrX = 1 & CntrY = 2) | (CntrX = 3 & CntrY = 2)))
+            #if (!((CntrX = 2 & CntrY = 1) | (CntrX = 1 & CntrY = 2) | (CntrX = 3 & CntrY = 2) | (CntrX = 1 & CntrY = 5)
+                    | (CntrX = 2 & CntrY = 5) | (CntrX = 3 & CntrY = 5) | (CntrX = 1 & CntrY = 6) | (CntrX = 2 & CntrY = 6)
+                    | (CntrX = 3 & CntrY = 6) | (CntrX = 0 & CntrY = 7) | (CntrX = 2 & CntrY = 7)))
                 light_source { <46+(CntrX * 8), 87.5-(CntrY * 11), 0> color rgb <1, 1, -10>
                     fade_distance 10
                     fade_power 50
