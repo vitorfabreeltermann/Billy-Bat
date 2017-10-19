@@ -20,7 +20,7 @@
 //luz geral
 light_source { <-300, 300, -300> color rgb <0.3, 0.3, 0.3> shadowless}
 
-// ch„o
+// ch√£o
 #declare RasterScale = 1.0;
 #declare RasterHalfLine  = 0.035;  
 #declare RasterHalfLineZ = 0.035; 
@@ -131,7 +131,7 @@ union{
     
 }       
   
-//cÈu
+//c√©u
 sky_sphere {
     pigment {
         crackle form <1,1,0>
@@ -142,7 +142,7 @@ sky_sphere {
         scale .002
     }
 }
-//prÈdio da frente
+//pr√©dio da frente
 union{
                             
     box {
@@ -181,7 +181,7 @@ union{
     translate z*5
 }
 
-//prÈdio de tr·s da direita
+//pr√©dio de tr√°s da direita
 union{
 
     difference{
@@ -189,54 +189,17 @@ union{
             <40, 0, 100>,  // Near lower left corner
             <76, 100, -0.35>   // Far upper right corner
         }
-        //*********************************************
-        //buraco da janela 1-1
-        box {
-            <44, 80, 5>,
-            <48, 90, -1>
-        }
+         
+        //buracos janelas
+        #for (CntrX, 0, 3, 1)
+            #for (CntrY, 0, 7, 1)
+                box {
+                    <44+(CntrX * 8), 83-(CntrY * 11), 5>,
+                    <48+(CntrX * 8), 90-(CntrY * 11), -1>
+                }
+            #end
+        #end
         
-        //buraco da janela 1-2
-        box {
-            <52, 80, 5>,
-            <56, 90, -1>
-        }
-        
-        //buraco da janela 1-3
-        box {
-            <60, 80, 5>,
-            <64, 90, -1>
-        }
-        
-        //buraco da janela 1-4
-        box {
-            <68, 80, 5>,
-            <72, 90, -1>
-        }
-        //*********************************************
-        //buraco da janela 2-1
-        box {
-            <44, 65, 5>,
-            <48, 75, -1>
-        }
-        
-        //buraco da janela 2-2
-        box {
-            <52, 65, 5>,
-            <56, 75, -1>
-        }
-        
-        //buraco da janela 2-3
-        box {
-            <60, 65, 5>,
-            <64, 75, -1>
-        }
-        
-        //buraco da janela 2-4
-        box {
-            <68, 65, 5>,
-            <72, 75, -1>
-        }
         
         texture {
             pigment { color rgb<0.055, 0.01, 0.015>}
@@ -250,216 +213,56 @@ union{
             scale 0.5
         }
     }
-    //*********************************************
-    //vidro janela 1-1
-    box{
-        <44, 80, 0>,
-        <48, 90, -0.35>
-        interior {
-            caustics 6.0
-            ior 3
-        }
-        texture {
-            T_Glass4
-            pigment {color rgb <1, 1, 1> filter 0.9}
-            finish {
-                phong 1 phong_size 3
-                reflection 0.01
-            }
-        }    
-    }
-    
-    //vidro janela 1-2
-    box{
-        <52, 80, 0>,
-        <56, 90, -0.35>
-        interior {
-            caustics 6.0
-            ior 3
-        }
-        texture {
-            T_Glass4
-            pigment {color rgb <1, 1, 1> filter 0.9}
-            finish {
-                phong 1 phong_size 3
-                reflection 0.01
-            }
-        }    
-    }
-    
-    //vidro janela 1-3
-    box{
-        <60, 80, 0>,
-        <64, 90, -0.35>
-        interior {
-            caustics 6.0
-            ior 3
-        }
-        texture {
-            T_Glass4
-            pigment {color rgb <1, 1, 1> filter 0.9}
-            finish {
-                phong 1 phong_size 3
-                reflection 0.01
-            }
-        }    
-    }
-    
-    //vidro janela 1-4
-    box{
-        <68, 80, 0>,
-        <72, 90, -0.35>
-        interior {
-            caustics 6.0
-            ior 3
-        }
-        texture {
-            T_Glass4
-            pigment {color rgb <1, 1, 1> filter 0.9}
-            finish {
-                phong 1 phong_size 3
-                reflection 0.01
-            }
-        }    
-    }
-    //*********************************************
-    //vidro janela 2-1
-    box{
-        <44, 65, 0>,
-        <48, 75, -0.35>
-        interior {
-            caustics 6.0
-            ior 3
-        }
-        texture {
-            T_Glass4
-            pigment {color rgb <1, 1, 1> filter 0.9}
-            finish {
-                phong 1 phong_size 3
-                reflection 0.01
-            }
-        }    
-    }
-    
-    //vidro janela 2-2
-    box{
-        <52, 65, 0>,
-        <56, 75, -0.35>
-        interior {
-            caustics 6.0
-            ior 3
-        }
-        texture {
-            T_Glass4
-            pigment {color rgb <1, 1, 1> filter 0.9}
-            finish {
-                phong 1 phong_size 3
-                reflection 0.01
-            }
-        }    
-    }
-    
-    //vidro janela 2-3
-    box{
-        <60, 65, 0>,
-        <64, 75, -0.35>
-        interior {
-            caustics 6.0
-            ior 3
-        }
-        texture {
-            T_Glass4
-            pigment {color rgb <1, 1, 1> filter 0.9}
-            finish {
-                phong 1 phong_size 3
-                reflection 0.01
-            }
-        }    
-    }
-    
-    //vidro janela 2-4
-    box{
-        <68, 65, 0>,
-        <72, 75, -0.35>
-        interior {
-            caustics 6.0
-            ior 3
-        }
-        texture {
-            T_Glass4
-            pigment {color rgb <1, 1, 1> filter 0.9}
-            finish {
-                phong 1 phong_size 3
-                reflection 0.01
-            }
-        }    
-    }
     
     //*********************************************
-    //luz janela 1-1
-    light_source { <46, 85, 4.5> color rgb <1, 1, -10> 
-        area_light <44, 80, 4.5>, <48, 90, 4.5>, 10, 10
-        fade_distance 10
-        fade_power 50
-        jitter
-    }
-    
-    //luz janela 1-2
-    light_source { <54, 85, 4.5> color rgb <1, 1, -10> 
-        area_light <52, 80, 4.5>, <56, 90, 4.5>, 10, 10
-        fade_distance 10
-        fade_power 50
-        jitter
-    }
-    
-    //luz janela 1-3
-    light_source { <62, 85, 4.5> color rgb <1, 1, -10> 
-        area_light <60, 80, 4.5>, <64, 90, 4.5>, 10, 10
-        fade_distance 10
-        fade_power 50
-        jitter
-    }
-    
-    //luz janela 1-4
-    light_source { <70, 85, 4.5> color rgb <1, 1, -10> 
-        area_light <68, 80, 4.5>, <72, 90, 4.5>, 10, 10
-        fade_distance 10
-        fade_power 50
-        jitter
-    }
-    //*********************************************
-    //luz janela 2-1
-    light_source { <46, 67.5, 4.5> color rgb <1, 1, -10> 
-        area_light <44, 65, 4.5>, <48, 75, 4.5>, 10, 10
-        fade_distance 10
-        fade_power 50
-        jitter
-    }
-    
-    //luz janela 2-2
-    light_source { <54, 67.5, 4.5> color rgb <1, 1, -10> 
-        area_light <52, 65, 4.5>, <56, 75, 4.5>, 10, 10
-        fade_distance 10
-        fade_power 50
-        jitter
-    }
-    
-    //luz janela 2-3
-    light_source { <62, 67.5, 4.5> color rgb <1, 1, -10> 
-        area_light <60, 65, 4.5>, <64, 75, 4.5>, 10, 10
-        fade_distance 10
-        fade_power 50
-        jitter
-    }
-    
-    //luz janela 2-4
-    light_source { <70, 67.5, 4.5> color rgb <1, 1, -10> 
-        area_light <68, 65, 4.5>, <72, 75, 4.5>, 10, 10
-        fade_distance 10
-        fade_power 50
-        jitter
-    }
-    
+    #for (CntrX, 0, 3, 1)
+        #for (CntrY, 0, 7, 1)
+            //vidros janelas
+            #if (!((CntrX = 2 & CntrY = 1) | (CntrX = 1 & CntrY = 2) | (CntrX = 3 & CntrY = 2)))
+                light_source { <46+(CntrX * 8), 87.5-(CntrY * 11), 0> color rgb <1, 1, -10>
+                    fade_distance 10
+                    fade_power 50
+                    jitter
+                    looks_like{
+                        box{
+                            <-2, -4.5, 0>,
+                            <2, 4.5, -0.35>
+                            interior {
+                                caustics 6.0
+                                ior 3
+                            }
+                            texture {
+                                T_Glass4
+                                pigment {color rgb <1, 1, 1> filter 0.9}
+                                finish {
+                                    phong 1 phong_size 3
+                                    reflection 0.01
+                                }
+                            }
+                        }
+                    }
+                }
+            #else
+                box{
+                    <44+(CntrX * 8), 83-(CntrY * 11), 0>,
+                    <48+(CntrX * 8), 90-(CntrY * 11), -0.35>
+                    interior {
+                        caustics 6.0
+                        ior 3
+                    }
+                    texture {
+                        T_Glass4
+                        pigment {color rgb <1, 1, 1> filter 0.95}
+                        finish {
+                            phong 1 phong_size 3
+                            reflection 0.01
+                        }
+                    }
+                } 
+            #end    
+        #end
+    #end
+
     rotate y*-50
     translate z*300
     translate x*-240
