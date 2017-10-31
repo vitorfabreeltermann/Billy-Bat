@@ -186,10 +186,10 @@ union{
 
     difference{
         box {
-            <40, 0, 100>,  // Near lower left corner
-            <76, 100, -0.35>   // Far upper right corner
+            <40, 0, 100>,  
+            <76, 100, -0.35>  
         }
-         
+        //********************************************* 
         //buracos janelas
         #for (CntrX, 0, 3, 1)
             #for (CntrY, 0, 7, 1)
@@ -200,7 +200,7 @@ union{
             #end
         #end
         
-        
+        //*********************************************
         texture {
             pigment { color rgb<0.055, 0.01, 0.015>}
             finish {
@@ -221,7 +221,7 @@ union{
             #if (!((CntrX = 2 & CntrY = 1) | (CntrX = 1 & CntrY = 2) | (CntrX = 3 & CntrY = 2) | (CntrX = 1 & CntrY = 5)
                     | (CntrX = 2 & CntrY = 5) | (CntrX = 3 & CntrY = 5) | (CntrX = 1 & CntrY = 6) | (CntrX = 2 & CntrY = 6)
                     | (CntrX = 3 & CntrY = 6) | (CntrX = 0 & CntrY = 7) | (CntrX = 2 & CntrY = 7)))
-                light_source { <46+(CntrX * 8), 87.5-(CntrY * 11), 0> color rgb <1, 1, -10>
+                light_source { <46+(CntrX * 8), 87.5-(CntrY * 11), 0> color rgb <10, 10, -1>
                     fade_distance 10
                     fade_power 50
                     jitter
@@ -264,25 +264,45 @@ union{
             #end    
         #end
     #end
-
+    //*********************************************
+    //sombra no topo
+    light_source{
+        <60, 120, -50> color rgb <-0.2, -0.05, -0.05>
+        fade_distance 63
+        fade_power 40
+    }
+    //*********************************************
     rotate y*-50
     translate z*300
     translate x*-240
 }
 
-//prédio de tras roxo
+//*********************************************
+//prédio roxo do fundo
 union{
-
     difference{
         box {
-            <50, 85, 25>,  // Near lower left corner
-            <55, 130, -0.35>   // Far upper right corner
+            <0, 0, -0.35>,  
+            <36, 280, 50>   
         }
-      
+        box {
+            <27, 240, -1>
+            <37, 281, 51>
         }
+        //********************************************* 
+        //buracos janelas
+        #for (CntrX, 0, 3, 1)
+            #for (CntrY, 0, 6, 1)
+                box {
+                    <4+(CntrX * 8), 263-(CntrY * 11), 5>,
+                    <8+(CntrX * 8), 270-(CntrY * 11), -1>
+                }
+            #end
+        #end
         
+        //*********************************************
         texture {
-            pigment { color rgb <0.54,0.16,0.88>}               // Corzinha do prédio
+            pigment { color rgb<0.075, 0.015, 0.075>}
             finish {
                 diffuse 1
             }
@@ -291,39 +311,76 @@ union{
                 scale 0.3
             }
             scale 0.5
-        } 
-    rotate y*+82
-    translate z*340
-    translate x*-180
+        }
+    }
+    
+    //*********************************************
+    #for (CntrX, 0, 3, 1)
+        #for (CntrY, 0, 6, 1)
+            //vidros janelas
+            #if (!((CntrX = 3 & CntrY = 0) | (CntrX = 0 & CntrY = 1) | (CntrX = 3 & CntrY = 1) | (CntrX = 1 & CntrY = 2)
+                    | (CntrX = 3 & CntrY = 2) | (CntrX = 1 & CntrY = 3) | (CntrX = 2 & CntrY = 4) | (CntrX = 3 & CntrY = 4)
+                    | (CntrX = 2 & CntrY = 5) | (CntrX = 3 & CntrY = 5) | (CntrX = 0 & CntrY = 6) | (CntrX = 2 & CntrY = 6)
+                    | (CntrX = 3 & CntrY = 6)))
+                light_source { <6+(CntrX * 8), 267.5-(CntrY * 11), 0> color rgb <10, 10, -1>
+                    fade_distance 10
+                    fade_power 50
+                    jitter
+                    looks_like{
+                        box{
+                            <-2, -4.5, 0>,
+                            <2, 4.5, -0.35>
+                            interior {
+                                caustics 6.0
+                                ior 3
+                            }
+                            texture {
+                                T_Glass4
+                                pigment {color rgb <1, 1, 1> filter 0.9}
+                                finish {
+                                    phong 1 phong_size 3
+                                    reflection 0.01
+                                }
+                            }
+                        }
+                    }
+                }
+            #else
+                #if (!((CntrX = 3 & CntrY = 0) | (CntrX = 3 & CntrY = 1) | (CntrX = 3 & CntrY = 2)))
+                    box{
+                        <4+(CntrX * 8), 263-(CntrY * 11), 0>,
+                        <8+(CntrX * 8), 270-(CntrY * 11), -0.35>
+                        interior {
+                            caustics 6.0
+                            ior 3
+                        }
+                        texture {
+                            T_Glass4
+                            pigment {color rgb <1, 1, 1> filter 0.95}
+                            finish {
+                                phong 1 phong_size 3
+                                reflection 0.01
+                            }
+                        }
+                    }
+                #end 
+            #end    
+        #end
+    #end
+    //*********************************************
+    //sombra no topo
+    light_source{
+        <15, 300, -50> color rgb <-0.3, -0.1, -0.2>
+        fade_distance 63
+        fade_power 40
+    }
+    //*********************************************
+    rotate y*-30
+    translate z*700
+    translate x*-400
 }
 
-//prédio de tras roxo TOPO
-union{
-
-    difference{
-        box {
-            <18, 140, 20>,  // Near lower left corner
-            <30, 160, -0.35>   // Far upper right corner
-        }
-      
-        }
-        
-        texture {
-            pigment { color rgb <0.54,0.16,0.88>}               // Corzinha do prédio
-            finish {
-                diffuse 1
-            }
-            normal {
-                wrinkles 0.5
-                scale 0.3
-            }
-            scale 0.5
-        } 
-    rotate y*+82
-    translate z*340
-    translate x*-190
-}    
-
+//*********************************************
 //bolas de luz
 light_source
 { <-30,5, 70> color rgb <1, 1, 0.5>
