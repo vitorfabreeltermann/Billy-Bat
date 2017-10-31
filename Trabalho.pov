@@ -370,7 +370,7 @@ union{
     //*********************************************
     //sombra no topo
     light_source{
-        <15, 300, -50> color rgb <-0.3, -0.1, -0.2>
+        <15, 300, -50> color rgb <-0.45, -0.1, -0.2>
         fade_distance 63
         fade_power 40
     }
