@@ -134,14 +134,17 @@ union{
 //céu
 sky_sphere {
     pigment {
-        crackle form <1,1,0>
+        bozo
         color_map {
-            [.4 rgb 10]
-            [.5 rgb <0, 0, 0.005>]
+            [0.0 rgb <0.005, 0.0, 0.015>]
+            [0.4 rgb <0.002, 0.0, 0.01>]
+            [0.6 rgb <0.0, 0.0, 0.01>]
+            [1.0 rgb 0.0]
         }
-        scale .002
+        scale 0.05
     }
 }
+
 //prédio da frente
 union{
     box {
@@ -398,7 +401,7 @@ union{
         fade_power 40
     }
     //*********************************************
-    rotate y*-30
+    rotate y*-29
     translate z*700
     translate x*-400
 }
