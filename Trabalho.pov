@@ -15,7 +15,27 @@
 #include "shapes2.inc"
 #include "functions.inc"
 #include "math.inc"
-#include "transforms.inc"
+#include "transforms.inc" 
+
+#declare paper = texture {
+  pigment { granite
+    color_map {
+     [0 color rgb <1,0.98,0.95>]
+     [0.2 color rgb <1,0.98,0.95>]
+     [0.21 color rgb <1,0.96,0.83>]
+     [0.3 color rgb <1,0.96,0.83>]
+     [0.4 0.5 color rgb <1,0.98,0.95> color rgb <1,0.98,0.95>]
+     [0.51 0.6 color rgb <.77,0.54,0.33> color rgb <.77,0.54,0.33>]
+     [0.61 0.9 color rgb <1,0.96,0.83> color rgb <1,0.96,0.83>]
+     [0.91 color rgb <.77,0.54,0.33>]
+     [1 color rgb <.77,0.54,0.33>]
+    }
+  scale 0.5
+  }
+}
+texture { pigment { color rgbt <1,0.96,0.83,0.1>}
+  normal { leopard 1 turbulence 1.7 scale 0.01 }
+}
 
 //luz geral
 light_source { <-300, 300, -300> color rgb <0.3, 0.3, 0.3> shadowless}
@@ -204,9 +224,9 @@ union{
     translate x*-10
     translate z*8
 }
-//*********************************************
+//***************
 //prédios do fundo 
-//********************************************* 
+//*************** 
 //prédio vermelho do fundo da esquerda
 union{
 
@@ -215,7 +235,7 @@ union{
             <40, 0, 100>,  
             <76, 100, -0.35>  
         }
-        //********************************************* 
+        //*************** 
         //buracos janelas
         #for (CntrX, 0, 3, 1)
             #for (CntrY, 0, 7, 1)
@@ -226,7 +246,7 @@ union{
             #end
         #end
         
-        //*********************************************
+        //***************
         texture {
             pigment { color rgb<0.055, 0.01, 0.015>}
             finish {
@@ -240,7 +260,7 @@ union{
         }
     }
     
-    //*********************************************
+    //***************
     #for (CntrX, 0, 3, 1)
         #for (CntrY, 0, 7, 1)
             //vidros janelas
@@ -290,20 +310,20 @@ union{
             #end    
         #end
     #end
-    //*********************************************
+    //***************
     //sombra no topo
     light_source{
         <60, 120, -50> color rgb <-0.2, -0.05, -0.05>
         fade_distance 63
         fade_power 40
     }
-    //*********************************************
+    //***************
     rotate y*-50
     translate z*300
     translate x*-240
 }
 
-//*********************************************
+//***************
 //prédio roxo do fundo
 union{
     difference{
@@ -315,7 +335,7 @@ union{
             <27, 240, -1>
             <37, 281, 51>
         }
-        //********************************************* 
+        //*************** 
         //buracos janelas
         #for (CntrX, 0, 3, 1)
             #for (CntrY, 0, 6, 1)
@@ -326,7 +346,7 @@ union{
             #end
         #end
         
-        //*********************************************
+        //***************
         texture {
             pigment { color rgb<0.075, 0.015, 0.075>}
             finish {
@@ -340,7 +360,7 @@ union{
         }
     }
     
-    //*********************************************
+    //***************
     #for (CntrX, 0, 3, 1)
         #for (CntrY, 0, 6, 1)
             //vidros janelas
@@ -393,23 +413,23 @@ union{
             #end    
         #end
     #end
-    //*********************************************
+    //***************
     //sombra no topo
     light_source{
         <15, 300, -50> color rgb <-0.3, -0.08, -0.18>
         fade_distance 63
         fade_power 40
     }
-    //*********************************************
+    //***************
     rotate y*-29
     translate z*700
     translate x*-400
 }
 
-//*********************************************
+//***************
 //prédio azul do fundo da direita
 union{
-    //*********************************************
+    //***************
     difference{
         union{
             //parte inferior
@@ -433,7 +453,7 @@ union{
                 }
             }
         }
-        //********************************************* 
+        //*************** 
         //buracos janelas parte inferior
         #for (CntrX, 0, 4, 1)
             #for (CntrY, 0, 10, 1)
@@ -461,7 +481,7 @@ union{
             #end
         #end
     
-        //*********************************************
+        //***************
         texture {
             pigment { color rgb<0.015, 0.015, 0.075>}
             finish {
@@ -474,7 +494,7 @@ union{
             scale 0.5
         }
     }
-    //********************************************* 
+    //*************** 
     //vidros das janelas
     //parte inferior
     #for (CntrX, 0, 4, 1)
@@ -658,20 +678,20 @@ union{
             #end    
         #end
     #end
-    //*********************************************
+    //***************
     //sombra no topo
     light_source{
         <-25, 190, -5> color rgb <-0.3, -0.18, -0.28>
         fade_distance 63
         fade_power 40
     }
-    //*********************************************
+    //***************
     rotate y*-70
     translate z*400
     translate x*-185
 }
 
-//*********************************************
+//***************
 //bolas de luz
 light_source
 { <-35, 15, 70> color rgb 2*<1, 1, 0.5>
@@ -777,4 +797,343 @@ light_source
         }
         
     }
+}  
+       
+ //papel esquerdo
+ object {
+     union {
+           object{polygon 
+           { 18, <-0.6,  0,-8>  , <-0.6,0.5,-8> , <-0.65,0.55,-8>  ,   <-0.7,  1, -8>,    
+                <-0.2,  1.05,-8> , <0,  1,-8>    ,   <0.4,  1,-8>   ,   <0.3,  0.9,-8>,     
+                <0.25, 0.85,-8> , <0.23,0.83,-8>,   <0,0.8,-8>     ,   <-0.2,0.7,-8>,
+                <-0.25,0.65,-8> , <-0.3,0.6,-8> ,   <-0.3,0.4,-8>  ,   <-0.4,0.3,-8>,
+                <-0.5,0.2,-8>   , <-0.6, 0, -8>
+                }
+           } 
+           texture {paper}
+      }       
+      rotate y*35.8
+      translate z*10.45
+      translate y*6
+      translate x*-1
+    }
+    //papel direito
+    object {
+     union {
+           object{polygon 
+           { 19, <0,  0,-8>      , <0.3, 1.6, -8> , <3, 1.6, -8>    , <3, 0.2, -8>,
+                 <2.6, 0.6, -8>  , <2.4, 0.1, -8> , <2.2, 0.2, -8>  , <2, 0.5, -8>, 
+                 <1.8, 0.8, -8>  , <1.6, 0.6, -8> , <1.4, 0.4, -8>  , <1.2, 0.5, -8>,
+                 <0.9, 0.4, -8>  , <0.7, 0.5, -8> , <0.6, 0.6, -8>  , <0.5, 0.5, -8>,
+                 <0.5, 0.3, -8>  , <0.3, 0.3, -8> , 
+                 <0, 0, -8>
+                }
+           } 
+           texture {paper}
+      }       
+      rotate y*40
+      translate z*5
+      translate y*4.5
+      translate x*5.5
+    }
+union {
+//cabeça
+union{
+    object{
+        difference{
+            cylinder{<0, 1, 0>, <0, 3, 0>, 1}
+            cylinder{<0, 6, -1>, <0, 6, 1>, 1 scale<1, 0.5, 1>}
+            cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*-10}
+            cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*10}
+        }
+        texture {
+            pigment {
+                bozo
+                turbulence 0.25
+                color_map {
+                    [0 rgb <0.05, 0.03, 0.14>]
+                    [1 rgb <0.02, 0.02,  0.07 >]
+                }
+                scale 0.04
+            }
+            finish{ ambient 0.25 }
+        }
+    }
+    object{
+       intersection{
+            cylinder{<0, 1, 0>, <0, 3, 0>, 1}
+            union{
+                cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*-10}
+                cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*10}
+            }
+       }
+       texture {
+            pigment {
+                bozo
+                turbulence 0.25
+                color_map {
+                    [0 rgb <0.9, 0.6, 0.3>]
+                    [1 rgb <0.9, 0.7,  0.4>]
+                }
+                scale 0.04
+            }
+            finish{ ambient 0.25 }
+        }
+    }
+    object{
+        union{
+            sphere{<0.4, 1.3, -0.83>, 0.1}
+            sphere{<-0.4, 1.3, -0.83>, 0.1}
+        }   
+    }
+    object{
+        sphere{<0, 1.5, 0>, 1 scale<1.3, 0.5, 1.3>}
+        texture {
+            pigment {
+                bozo
+                turbulence 0.25
+                color_map {
+                    [0 rgb <1, 1, 0.9>]
+                    [1 rgb <0.9, 0.8,  0.7>]
+                }
+                scale 0.04
+            }
+            finish{ ambient 0.25 }
+        }
+    }
+    object{
+        sphere{<0, 1.1, -1>, 0.1}
+        pigment{color rgb<0.9, 0.7, 0.8>}
+    }
+    scale <0.5, 0.5, 0.5>
+    rotate x*6
+    rotate y*5
+    translate z*-10
+    translate y*4 
+    translate x*-0.9
+    
+}
+//cabeça
+union{
+    object{
+        difference{
+            cylinder{<0, 1, 0>, <0, 2, 0>, 1}
+        }
+        texture {
+            pigment {
+                color rgb <0.026, 0.016, 0.02> 
+            }
+            finish{ ambient 0.25 }
+        }
+    }
+    object{
+        difference{
+            cylinder{<0, 1, 0>, <0, 2, 0>, 1}
+        }
+        texture {
+            pigment {
+                color rgb <0.026, 0.016, 0.02> 
+            }
+            finish{ ambient 0.25 }
+        }
+    }
+    
+    object{
+        difference{
+            cylinder{<0, 1, 0>, <0, 2, 0>, 1}
+        }
+        texture {
+            pigment {
+                color rgb <0.026, 0.016, 0.02> 
+            }
+            finish{ ambient 0.25 }
+        }
+    }
+    
+    object{
+        difference{
+            cylinder{<0, 1, 0>, <0, 2, 0>, 1}
+        }
+        texture {
+            pigment {
+                color rgb <0.026, 0.016, 0.02> 
+            }
+            finish{ ambient 0.25 }
+        }
+    }
+    
+    object{
+        sphere{<0, 1.5, 0>, 1 scale<1.9, 0.5, 1.3>}
+        texture {
+            pigment { color rgb <0.026, 0.016, 0.02>
+            }
+            finish{ ambient 0.25 }
+        }
+    }
+    scale <0.5, 0.5, 0.5>
+    rotate x*6
+    rotate y*5
+    rotate z*45
+    translate z*-10
+    translate y*4.8 
+    translate x*-0.8
+    
+}                   
+//sapato direito
+union{
+    union{
+        difference{
+            union{
+                cylinder{<0, 1, 0>, <0, 1, 3>, 1 translate x*1}
+                sphere{<1, 1, 0>, 1}
+                intersection{
+                    cylinder{<0, 1, 1>, <0, 1, 4>, 1 translate x*1}
+                    cylinder{<0, 1, 3>, <0, 2, 3>, 1 translate x*1}
+                }
+            }
+            box{<0, 0, -2>, <2, 1, 5>}
+        }
+        cylinder{<0, 0.5, 0>, <0, 1, 0>, 1 translate x*1}
+        cylinder{<0, 0.5, 3>, <0, 1, 3>, 1 translate x*1}
+        box{<0, 0.5, 0>, <2, 1, 3>}
+        
+        pigment{
+            crackle
+         scale .04
+         poly_wave .045
+         pigment_map {
+              [0 rgb 0]
+              [1 rgb .07]
+         }
+        }
+        finish{
+            diffuse 1
+            specular .75
+            roughness .035
+            ambient 0
+            reflection { .0075 .015
+                fresnel 1
+                metallic 0
+            }
+        }
+    }
+    union{
+        cylinder{<0, 0, 0>, <0, 0.5, 0>, 1 translate x*1}
+        cylinder{<0, 0, 3>, <0, 0.5, 3>, 1 translate x*1}
+        box{<0, 0, 0>, <2, 0.5, 3>}
+        
+        pigment{
+            crackle
+         scale .04
+         poly_wave .045
+         pigment_map {
+              [0 rgb <1, 1, 0.9>]
+              [1 rgb <0.5, 0.5, 0.3>]
+         }
+        }
+        finish{
+            diffuse 1
+            specular .75
+            roughness .035
+            ambient 0
+        }
+    }
+                          
+    scale <0.4, 0.25, 0.3>
+    rotate y*-30
+    translate z*-7.5
+    translate x*-1
+    
+}     
+
+//sapato esquerdo
+union{
+    union{
+        difference{
+            union{
+                cylinder{<0, 1, 0>, <0, 1, 3>, 1 translate x*1}
+                sphere{<1, 1, 0>, 1}
+                intersection{
+                    cylinder{<0, 1, 1>, <0, 1, 4>, 1 translate x*1}
+                    cylinder{<0, 1, 3>, <0, 2, 3>, 1 translate x*1}
+                }
+            }
+            box{<0, 0, -2>, <2, 1, 5>}
+        }
+        cylinder{<0, 0.5, 0>, <0, 1, 0>, 1 translate x*1}
+        cylinder{<0, 0.5, 3>, <0, 1, 3>, 1 translate x*1}
+        box{<0, 0.5, 0>, <2, 1, 3>}
+        
+        pigment{
+            crackle
+         scale .04
+         poly_wave .045
+         pigment_map {
+              [0 rgb 0]
+              [1 rgb .07]
+         }
+        }
+        finish{
+            diffuse 1
+            specular .75
+            roughness .035
+            ambient 0
+            reflection { .0075 .015
+                fresnel 1
+                metallic 0
+            }
+        }
+    }
+    union{
+        cylinder{<0, 0, 0>, <0, 0.5, 0>, 1 translate x*1}
+        cylinder{<0, 0, 3>, <0, 0.5, 3>, 1 translate x*1}
+        box{<0, 0, 0>, <2, 0.5, 3>}
+        
+        pigment{
+            crackle
+         scale .04
+         poly_wave .045
+         pigment_map {
+              [0 rgb <1, 1, 0.9>]
+              [1 rgb <0.5, 0.5, 0.3>]
+         }
+        }
+        finish{
+            diffuse 1
+            specular .75
+            roughness .035
+            ambient 0
+        }
+    }
+    
+    scale <0.4, 0.25, 0.3>
+    rotate y*30
+    rotate x*-23
+    translate z*-5.5
+    translate x*-3
+    translate y*0.15
+    
+}   
+//calças  
+union{
+    cylinder { 
+    <-3,0,-4>,<-3,2,-4>, 0.4
+    rotate x*-30 
+    translate y*2.7
+    translate z*-1.4
+    translate x*0.88
+    } 
+    
+cylinder { 
+    <0,0,-9>,<0,2,-9>, 0.4
+        translate x*-1.07  
+        translate z*2.2
+        translate y*0.3
+    } 
+    texture { 
+        pigment { 
+            color rgb <0.026, 0.016, 0.02>
+            }  
+        }
+}    
 }
