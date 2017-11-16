@@ -1254,7 +1254,7 @@ union{
         translate z*-8
         }
     }
-    translate x*-1.8
-    translate z*4
+    translate x*-1.5
+    translate z*6
     scale 1.1
 }
