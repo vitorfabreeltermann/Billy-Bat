@@ -83,7 +83,7 @@ plane { <0,1,0>, 0    // plane with layered textures
 
 
 
- 
+//camera
 camera{
     location <0, 3, -20>
     look_at <0, 3, 0>
@@ -845,417 +845,416 @@ light_source
       translate x*5.5
     }
 union {
+
 //cabeça
 union{
-union{
-    object{
-        difference{
-            cylinder{<0, 1, 0>, <0, 3, 0>, 1}
-            cylinder{<0, 6, -1>, <0, 6, 1>, 1 scale<1, 0.5, 1>}
-            cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*-10}
-            cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*10}
-        }
-        texture {
-            pigment {
-                bozo
-                turbulence 0.25
-                color_map {
-                    [0 rgb <0.05, 0.03, 0.14>]
-                    [1 rgb <0.02, 0.02,  0.07 >]
-                }
-                scale 0.04
-            }
-            finish{ ambient 0.25 }
-        }
-    }
-    object{
-       intersection{
-            cylinder{<0, 1, 0>, <0, 3, 0>, 1}
-            union{
-                cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*-10}
-                cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*10}
-            }
-       }
-       texture {
-            pigment {
-                bozo
-                turbulence 0.25
-                color_map {
-                    [0 rgb <0.9, 0.6, 0.3>]
-                    [1 rgb <0.9, 0.7,  0.4>]
-                }
-                scale 0.04
-            }
-            finish{ ambient 0.25 }
-        }
-    }
-    object{
+    union{
         union{
-            sphere{<0.4, 1.3, -0.83>, 0.1}
-            sphere{<-0.4, 1.3, -0.83>, 0.1}
+            object{
+                difference{
+                    cylinder{<0, 1, 0>, <0, 3, 0>, 1}
+                    cylinder{<0, 6, -1>, <0, 6, 1>, 1 scale<1, 0.5, 1>}
+                    cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*-10}
+                    cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*10}
+                }
+                texture {
+                    pigment {
+                        bozo
+                        turbulence 0.25
+                        color_map {
+                            [0 rgb <0.05, 0.03, 0.14>]
+                            [1 rgb <0.02, 0.02,  0.07 >]
+                        }
+                        scale 0.04
+                    }
+                    finish{ ambient 0.25 }
+                }
+            }
+            object{
+                intersection{
+                    cylinder{<0, 1, 0>, <0, 3, 0>, 1}
+                    union{
+                        cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*-10}
+                        cylinder{<0, 1, -1>, <0, 1, 0.5>, 0.5 scale<1, 1.5, 1> rotate z*10}
+                    }
+                }
+                texture {
+                    pigment {
+                        bozo
+                        turbulence 0.25
+                        color_map {
+                            [0 rgb <0.9, 0.6, 0.3>]
+                            [1 rgb <0.9, 0.7,  0.4>]
+                        }
+                        scale 0.04
+                    }
+                    finish{ ambient 0.25 }
+                }
+            }   
+            object{
+                union{
+                    sphere{<0.4, 1.3, -0.83>, 0.1}
+                    sphere{<-0.4, 1.3, -0.83>, 0.1}
+                }   
+            }
+            object{
+                sphere{<0, 1.5, 0>, 1 scale<1.3, 0.5, 1.3>}
+                texture {
+                    pigment {
+                        bozo
+                        turbulence 0.25
+                        color_map {
+                            [0 rgb <1, 1, 0.9>]
+                            [1 rgb <0.9, 0.8,  0.7>]
+                        }
+                        scale 0.04
+                    }
+                    finish{ ambient 0.25 }
+                }   
+            }
+            object{
+                sphere{<0, 1.1, -1>, 0.1}
+                pigment{color rgb<0.9, 0.7, 0.8>}
+            }
+            scale <0.5, 0.5, 0.5>
+            rotate x*6
+            rotate y*5
+            translate z*-10
+            translate y*4 
+            translate x*-0.9
+        
+        }
+        //chapeu
+        union{
+            object{
+                cylinder{<0, 1, 0>, <0, 2, 0>, 1}
+                texture {
+                    pigment {
+                        color rgb <0.026, 0.016, 0.02> 
+                    }
+                    finish{ ambient 0.25 }
+                }       
+            }
+            
+            object{
+                cylinder{<0, 1, 0>, <0, 1.4, 0>, 1.01}
+                texture {
+                    pigment {
+                        color rgb <0.00001, 0.00001, 0.00001> 
+                    }
+                    finish{ ambient 0.25 }
+                }       
+            }
+            
+            object{
+                sphere{<0, 1.5, 0>, 1 scale<1.9, 0.5, 1.3>}
+                texture {
+                    pigment { color rgb <0.026, 0.016, 0.02> }
+                    finish{ ambient 0.25 }
+                }
+            }
+            
+            scale <0.5, 0.5, 0.5>
+            rotate x*6
+            rotate y*5
+            rotate z*45
+            translate z*-10
+            translate y*4.8 
+            translate x*-0.8
+            
+        }  
+        translate x*-0.45
+        translate z*1.4
+        translate y*0.1
+    }
+    //pernas
+    union{
+        //sapatos
+        union{
+            //sapato direito
+            union{
+                union{
+                    difference{
+                        union{
+                            cylinder{<0, 1, 0>, <0, 1, 3>, 1 translate x*1}
+                            sphere{<1, 1, 0>, 1}
+                            intersection{
+                                cylinder{<0, 1, 1>, <0, 1, 4>, 1 translate x*1}
+                                cylinder{<0, 1, 3>, <0, 2, 3>, 1 translate x*1}
+                            }
+                        }
+                        box{<0, 0, -2>, <2, 1, 5>}
+                    }
+                    cylinder{<0, 0.5, 0>, <0, 1, 0>, 1 translate x*1}
+                    cylinder{<0, 0.5, 3>, <0, 1, 3>, 1 translate x*1}
+                    box{<0, 0.5, 0>, <2, 1, 3>}
+                    
+                    pigment{
+                        crackle
+                     scale .04
+                     poly_wave .045
+                     pigment_map {
+                          [0 rgb 0]
+                          [1 rgb .07]
+                     }
+                    }
+                    finish{
+                        diffuse 1
+                        specular .75
+                        roughness .035
+                        ambient 0
+                        reflection { .0075 .015
+                            fresnel 1
+                            metallic 0
+                        }
+                    }
+                }
+                union{
+                    cylinder{<0, 0, 0>, <0, 0.5, 0>, 1 translate x*1}
+                    cylinder{<0, 0, 3>, <0, 0.5, 3>, 1 translate x*1}
+                    box{<0, 0, 0>, <2, 0.5, 3>}
+                    
+                    pigment{
+                        crackle
+                     scale .04
+                     poly_wave .045
+                     pigment_map {
+                          [0 rgb <1, 1, 0.9>]
+                          [1 rgb <0.5, 0.5, 0.3>]
+                     }
+                    }
+                    finish{
+                        diffuse 1
+                        specular .75
+                        roughness .035
+                        ambient 0
+                    }
+                }
+                                      
+                scale <0.4, 0.25, 0.3>
+                rotate y*-30
+                translate z*-7.5
+                translate x*-1
+                
+            }     
+            
+            //sapato esquerdo
+            union{
+                union{
+                    difference{
+                        union{
+                            cylinder{<0, 1, 0>, <0, 1, 3>, 1 translate x*1}
+                            sphere{<1, 1, 0>, 1}
+                            intersection{
+                                cylinder{<0, 1, 1>, <0, 1, 4>, 1 translate x*1}
+                                cylinder{<0, 1, 3>, <0, 2, 3>, 1 translate x*1}
+                            }
+                        }
+                        box{<0, 0, -2>, <2, 1, 5>}
+                    }
+                    cylinder{<0, 0.5, 0>, <0, 1, 0>, 1 translate x*1}
+                    cylinder{<0, 0.5, 3>, <0, 1, 3>, 1 translate x*1}
+                    box{<0, 0.5, 0>, <2, 1, 3>}
+                    
+                    pigment{
+                        crackle
+                     scale .04
+                     poly_wave .045
+                     pigment_map {
+                          [0 rgb 0]
+                          [1 rgb .07]
+                     }
+                    }
+                    finish{
+                        diffuse 1
+                        specular .75
+                        roughness .035
+                        ambient 0
+                        reflection { .0075 .015
+                            fresnel 1
+                            metallic 0
+                        }
+                    }
+                }
+                union{
+                    cylinder{<0, 0, 0>, <0, 0.5, 0>, 1 translate x*1}
+                    cylinder{<0, 0, 3>, <0, 0.5, 3>, 1 translate x*1}
+                    box{<0, 0, 0>, <2, 0.5, 3>}
+                    
+                    pigment{
+                        crackle
+                     scale .04
+                     poly_wave .045
+                     pigment_map {
+                          [0 rgb <1, 1, 0.9>]
+                          [1 rgb <0.5, 0.5, 0.3>]
+                     }
+                    }
+                    finish{
+                        diffuse 1
+                        specular .75
+                        roughness .035
+                        ambient 0
+                    }
+                }
+                
+                scale <0.4, 0.25, 0.3>
+                rotate y*30
+                rotate x*-23
+                translate z*-5.5
+                translate x*-3
+                translate y*0.15
+                
+            }
         }   
-    }
-    object{
-        sphere{<0, 1.5, 0>, 1 scale<1.3, 0.5, 1.3>}
-        texture {
-            pigment {
-                bozo
-                turbulence 0.25
-                color_map {
-                    [0 rgb <1, 1, 0.9>]
-                    [1 rgb <0.9, 0.8,  0.7>]
-                }
-                scale 0.04
+        //calças  
+        union{
+            cylinder { 
+                <-3,0,-4>,<-3,2,-4>, 0.4
+                rotate x*-30 
+                translate y*2.7
+                translate z*-1.4
+                translate x*0.88
+            } 
+            
+            cylinder { 
+                <0,0,-9>,<-0.3,2,-8.5>, 0.4
+                    translate x*-1.07  
+                    translate z*2.2
+                    translate y*0.3
+            } 
+            texture { 
+                pigment{ 
+                    color rgb <0.026, 0.016, 0.02>
+                }  
             }
-            finish{ ambient 0.25 }
         }
+        scale 0.7
+        translate z*-4.3
     }
-    object{
-        sphere{<0, 1.1, -1>, 0.1}
-        pigment{color rgb<0.9, 0.7, 0.8>}
-    }
-    scale <0.5, 0.5, 0.5>
-    rotate x*6
-    rotate y*5
-    translate z*-10
-    translate y*4 
-    translate x*-0.9
-    
-}
-//chapeu
-union{
-    object{
-        difference{
-            cylinder{<0, 1, 0>, <0, 2, 0>, 1}
-        }
-        texture {
-            pigment {
-                color rgb <0.026, 0.016, 0.02> 
-            }
-            finish{ ambient 0.25 }
-        }       
-    }
-    
-    object{
-        difference{
-            cylinder{<0, 1, 0>, <0, 1.4, 0>, 1.01}
-        }
-        texture {
-            pigment {
-                color rgb <0.00001, 0.00001, 0.00001> 
-            }
-            finish{ ambient 0.25 }
-        }       
-    }
-    
-    object{
-        sphere{<0, 1.5, 0>, 1 scale<1.9, 0.5, 1.3>}
-        texture {
-            pigment { color rgb <0.026, 0.016, 0.02>
-            }
-            finish{ ambient 0.25 }
-        }
-    }
-    
-    scale <0.5, 0.5, 0.5>
-    rotate x*6
-    rotate y*5
-    rotate z*45
-    translate z*-10
-    translate y*4.8 
-    translate x*-0.8
-    
-}  
-  translate x*-0.5
-  translate z*1.2
-  translate y*-0.02
-}                 
-//sapato direito
-union{
+    //braço esquerdo
     union{
-        difference{
-            union{
-                cylinder{<0, 1, 0>, <0, 1, 3>, 1 translate x*1}
-                sphere{<1, 1, 0>, 1}
-                intersection{
-                    cylinder{<0, 1, 1>, <0, 1, 4>, 1 translate x*1}
-                    cylinder{<0, 1, 3>, <0, 2, 3>, 1 translate x*1}
-                }
-            }
-            box{<0, 0, -2>, <2, 1, 5>}
+        cylinder { 
+            <1.3,3,-9>,<0.3,4,-9>, 0.3
+            translate x*-1  
+            translate z*0.4
+            translate y*-0.05
         }
-        cylinder{<0, 0.5, 0>, <0, 1, 0>, 1 translate x*1}
-        cylinder{<0, 0.5, 3>, <0, 1, 3>, 1 translate x*1}
-        box{<0, 0.5, 0>, <2, 1, 3>}
-        
-        pigment{
-            crackle
-         scale .04
-         poly_wave .045
-         pigment_map {
-              [0 rgb 0]
-              [1 rgb .07]
-         }
-        }
-        finish{
-            diffuse 1
-            specular .75
-            roughness .035
-            ambient 0
-            reflection { .0075 .015
-                fresnel 1
-                metallic 0
-            }
-        }
+        cylinder { 
+        <1.2,3,-9>,<0.3,4,-9>, 0.3
+            rotate z*90
+            translate x*3.2  
+            translate z*0.4
+            translate y*2
+        }  
+        texture { 
+            pigment { 
+                color rgb <0.25, 0.15, 0>
+            }  
+        } 
     }
-    union{
-        cylinder{<0, 0, 0>, <0, 0.5, 0>, 1 translate x*1}
-        cylinder{<0, 0, 3>, <0, 0.5, 3>, 1 translate x*1}
-        box{<0, 0, 0>, <2, 0.5, 3>}
-        
-        pigment{
-            crackle
-         scale .04
-         poly_wave .045
-         pigment_map {
-              [0 rgb <1, 1, 0.9>]
-              [1 rgb <0.5, 0.5, 0.3>]
-         }
+    //braço direto
+    difference{
+        cylinder { 
+            <0.6,2.3,-9>,<1.3,4,-9>, 0.3
+            translate x*-3  
+            translate z*0.6
         }
-        finish{
-            diffuse 1
-            specular .75
-            roughness .035
-            ambient 0
+        box { <-5.00, 3.00, -3.00>, < -2.80, 4.00, 3.00> 
+            scale 0.5
+            translate z*-8.1
+            translate y*0.5
+            translate x*-0.5  
         }
-    }
-                          
-    scale <0.4, 0.25, 0.3>
-    rotate y*-30
-    translate z*-7.5
-    translate x*-1
-    
-}     
-
-//sapato esquerdo
-union{
-    union{
-        difference{
-            union{
-                cylinder{<0, 1, 0>, <0, 1, 3>, 1 translate x*1}
-                sphere{<1, 1, 0>, 1}
-                intersection{
-                    cylinder{<0, 1, 1>, <0, 1, 4>, 1 translate x*1}
-                    cylinder{<0, 1, 3>, <0, 2, 3>, 1 translate x*1}
-                }
-            }
-            box{<0, 0, -2>, <2, 1, 5>}
-        }
-        cylinder{<0, 0.5, 0>, <0, 1, 0>, 1 translate x*1}
-        cylinder{<0, 0.5, 3>, <0, 1, 3>, 1 translate x*1}
-        box{<0, 0.5, 0>, <2, 1, 3>}
-        
-        pigment{
-            crackle
-         scale .04
-         poly_wave .045
-         pigment_map {
-              [0 rgb 0]
-              [1 rgb .07]
-         }
-        }
-        finish{
-            diffuse 1
-            specular .75
-            roughness .035
-            ambient 0
-            reflection { .0075 .015
-                fresnel 1
-                metallic 0
-            }
-        }
-    }
-    union{
-        cylinder{<0, 0, 0>, <0, 0.5, 0>, 1 translate x*1}
-        cylinder{<0, 0, 3>, <0, 0.5, 3>, 1 translate x*1}
-        box{<0, 0, 0>, <2, 0.5, 3>}
-        
-        pigment{
-            crackle
-         scale .04
-         poly_wave .045
-         pigment_map {
-              [0 rgb <1, 1, 0.9>]
-              [1 rgb <0.5, 0.5, 0.3>]
-         }
-        }
-        finish{
-            diffuse 1
-            specular .75
-            roughness .035
-            ambient 0
-        }
-    }
-    
-    scale <0.4, 0.25, 0.3>
-    rotate y*30
-    rotate x*-23
-    translate z*-5.5
-    translate x*-3
-    translate y*0.15
-    
-}   
-//calças  
-union{
-    cylinder { 
-    <-3,0,-4>,<-3,2,-4>, 0.4
-    rotate x*-30 
-    translate y*2.7
-    translate z*-1.4
-    translate x*0.88
-    } 
-    
-cylinder { 
-    <0,0,-9>,<0,2,-9>, 0.4
-        translate x*-1.07  
-        translate z*2.2
-        translate y*0.3
-    } 
-    texture { 
-        pigment { 
-            color rgb <0.026, 0.016, 0.02>
+        texture { 
+            pigment { 
+                color rgb <0.25, 0.15, 0>
             }  
         }
-}  
-
-
-
-//asas
-object {
-     union {
-           object{polygon 
-           { 33,<0,  0,-8>      , <0.2, 0.2, -8> , <0.3, 0.5, -8>  , <0.6, 0.5, -8>,
-                <0.7, 0.3, -8>  , <0.8, 0.2, -8> , <0.9, 0.3, -8>  , <1, 0.6, -8>,
-                <1.3, 0.8, -8>  , <1.4, 0.9, -8> , <1.5, 0.8, -8>  , <1.6, 0.6, -8>,
-                <1.7, 0.5, -8>  , <1.9, 0.6, -8> , <2.3, 0.8, -8>  , <2.6, 1, -8>,
-                <3, 1.2, -8>    , <3.3, 1, -8>   , <3.5, 0.9 -8>   , <3.3, 1, -8>,
-                <3.1, 1.3, -8>  , <2.9, 1.6, -8> , <2.5, 1.8, -8>  , <2.3, 2, -8>,
-                <2.1, 2.3, -8>  , <1.4, 2.6, -8> , <1.3, 2.3, -8>  , <1.1, 2, -8>,
-                <0.9, 2.3, -8>  , <0.7, 2.6, -8> , <0.5, 2.3, -8>  , <0.3, 2.1, -8>,
-                <0,0, -8>  
-           }
-           } 
-           pigment {color rgb <0.1,0.1,0.1>}
-      }       
     }
-
-//braço/sobretudo
-union{
-   cylinder { 
-    <1.3,3,-9>,<0.3,4,-9>, 0.3
-        translate x*-1  
-        translate z*0.4
-        translate y*-0.05
-   } 
-   texture { 
-       pigment { 
-            color rgb <0.25, 0.15, 0>
-           }  
-       } 
-}
-//braço/sobretudo
-union{
-   cylinder { 
-    <1.2,3,-9>,<0.3,4,-9>, 0.3
-        rotate z*90
-        translate x*3.2  
-        translate z*0.4
-        translate y*2
-   } 
-   texture { 
-       pigment { 
-            color rgb <0.25, 0.15, 0>
-           }  
-       } 
-}
-// mão 
-union{
-union{
-box { 
-    <-4.00, 3.00, -1.00>,
-    < -3.80, 4.00, 1.00>   
+    // mão 
+    union{
+        union{
+            box { 
+                <-4.00, 3.00, -1.00>,
+                < -3.80, 4.00, -0.2>   
     
-    texture { 
-        pigment{ 
-            color rgb<1.00, 1.00, 1.00> 
-            }  
-            finish { phong 1 reflection{ 0.00 metallic 0.00} } 
-              } 
-      scale <1,1,1> rotate<0,0,0> translate<0,0,0> 
-    }             
-}
-// dedo    
-box { 
-    <-3.20, 4.00, -1.00>,
-    < -3.80, 2.80, 1.00>   
+                texture { 
+                    pigment{ 
+                        color rgb<1.00, 1.00, 1.00> 
+                    }  
+                    finish { phong 1 reflection{ 0.00 metallic 0.00} } 
+                } 
+                scale <1,1,1> rotate<0,0,0> translate<0,0,0> 
+            }             
+        }
+        // dedo    
+        box { 
+            <-3.20, 4.00, -1.00>,
+            < -3.80, 2.80, -0.2>   
     
-    texture { 
-        pigment{ 
-            color rgb <0.25, 0.15, 0> 
-            }  
-            finish { phong 1 reflection{ 0.00 metallic 0.00} } 
-              } 
-      scale <1,1,1> rotate<0,0,0> translate<0,0,0> 
-    } 
-      
- translate z*-2
- translate y*-1.3  
-     }
+            texture { 
+                pigment{ 
+                    color rgb<1.00, 1.00, 1.00> 
+                }  
+                finish { phong 1 reflection{ 0.00 metallic 0.00} } 
+            } 
+            scale <1,1,1> rotate<0,0,0> translate<0,0,0> 
+        } 
+        scale 0.5
+        translate z*-8.1
+        translate y*0.5
+        translate x*-0.5  
+    }
      
-//corpo
-union {
-box { 
-    <-1, 3.6, -1.00>,
-    < 0.6, 1, 0>   
+    //corpo
+    union {
+        intersection{
+            box { <-1, 3.6, -1.00>, < 0.6, 0.8, 0> }
+            cylinder {<-0.2, 0.8, -0.5>,<-0.2, 3.6, -0.5>, 0.8}   
     
-    texture {  
-    pigment{ 
-        color rgb <0.25, 0.15, 0> 
-    }
-      scale <1,1,1> rotate<0,0,0> translate<0,0,0> 
-    } 
-    }
+            texture {  
+                pigment{ 
+                    color rgb <0.25, 0.15, 0> 
+                }
+                scale <1,1,1> rotate<0,0,0> translate<0,0,0> 
+            } 
+        }
  
-    sphere{
-        <-0.7, 3, -1>,0.08
-        texture {
-            pigment {color White}
-        } 
-    }
-    
-    sphere{
-        <0.25, 3, -1>,0.08
-        texture {
-            pigment {color White}
-        } 
-    }
+        sphere{
+            <-0.7, 3, -1>,0.08
+            texture {
+                pigment {color White}
+            } 
+        }
     
         sphere{
-        <-0.7, 2, -1>,0.08
-        texture {
-            pigment {color White}
-        } 
-    }
+            <0.25, 3, -1>,0.08
+            texture {
+                pigment {color White}
+            } 
+        }
     
-    sphere{
-        <0.25, 2, -1>,0.08
-        texture {
-            pigment {color White}
-        } 
-    }             
-    rotate y*15
-    translate x*-0.95
-    translate y*0.7 
-    translate z*-8
+        sphere{
+            <-0.7, 2, -1>,0.08
+            texture {
+                pigment {color White}
+            } 
+        }
+    
+        sphere{
+            <0.25, 2, -1>,0.08
+            texture {
+                pigment {color White}
+            } 
+        }             
+        rotate y*15
+        translate x*-0.95
+        translate y*0.7 
+        translate z*-8
+        }
     }
+    translate x*-1.8
+    translate z*4
+    scale 1.1
 }
