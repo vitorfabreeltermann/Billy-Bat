@@ -1,3 +1,11 @@
+//*****************************************
+//Trabalho para aula de computação gráfica
+//Tema: Billy Bat
+//Alunos: Vitor Fabre Eltermann
+//        Vinicius Anastácio
+//        Rodrigo da Silva Ghiorzi
+//        Ricardo Taruhn Duarte
+//*****************************************
 #include "colors.inc"
 #include "textures.inc"
 #include "shapes.inc"
@@ -839,6 +847,7 @@ light_source
 union {
 //cabeça
 union{
+union{
     object{
         difference{
             cylinder{<0, 1, 0>, <0, 3, 0>, 1}
@@ -913,7 +922,7 @@ union{
     translate x*-0.9
     
 }
-//cabeça
+//chapeu
 union{
     object{
         difference{
@@ -924,42 +933,19 @@ union{
                 color rgb <0.026, 0.016, 0.02> 
             }
             finish{ ambient 0.25 }
-        }
-    }
-    object{
-        difference{
-            cylinder{<0, 1, 0>, <0, 2, 0>, 1}
-        }
-        texture {
-            pigment {
-                color rgb <0.026, 0.016, 0.02> 
-            }
-            finish{ ambient 0.25 }
-        }
+        }       
     }
     
     object{
         difference{
-            cylinder{<0, 1, 0>, <0, 2, 0>, 1}
+            cylinder{<0, 1, 0>, <0, 1.4, 0>, 1.01}
         }
         texture {
             pigment {
-                color rgb <0.026, 0.016, 0.02> 
+                color rgb <0.00001, 0.00001, 0.00001> 
             }
             finish{ ambient 0.25 }
-        }
-    }
-    
-    object{
-        difference{
-            cylinder{<0, 1, 0>, <0, 2, 0>, 1}
-        }
-        texture {
-            pigment {
-                color rgb <0.026, 0.016, 0.02> 
-            }
-            finish{ ambient 0.25 }
-        }
+        }       
     }
     
     object{
@@ -970,6 +956,7 @@ union{
             finish{ ambient 0.25 }
         }
     }
+    
     scale <0.5, 0.5, 0.5>
     rotate x*6
     rotate y*5
@@ -978,7 +965,11 @@ union{
     translate y*4.8 
     translate x*-0.8
     
-}                   
+}  
+  translate x*-0.5
+  translate z*1.2
+  translate y*-0.02
+}                 
 //sapato direito
 union{
     union{
@@ -1135,5 +1126,136 @@ cylinder {
             color rgb <0.026, 0.016, 0.02>
             }  
         }
-}    
+}  
+
+
+
+//asas
+object {
+     union {
+           object{polygon 
+           { 33,<0,  0,-8>      , <0.2, 0.2, -8> , <0.3, 0.5, -8>  , <0.6, 0.5, -8>,
+                <0.7, 0.3, -8>  , <0.8, 0.2, -8> , <0.9, 0.3, -8>  , <1, 0.6, -8>,
+                <1.3, 0.8, -8>  , <1.4, 0.9, -8> , <1.5, 0.8, -8>  , <1.6, 0.6, -8>,
+                <1.7, 0.5, -8>  , <1.9, 0.6, -8> , <2.3, 0.8, -8>  , <2.6, 1, -8>,
+                <3, 1.2, -8>    , <3.3, 1, -8>   , <3.5, 0.9 -8>   , <3.3, 1, -8>,
+                <3.1, 1.3, -8>  , <2.9, 1.6, -8> , <2.5, 1.8, -8>  , <2.3, 2, -8>,
+                <2.1, 2.3, -8>  , <1.4, 2.6, -8> , <1.3, 2.3, -8>  , <1.1, 2, -8>,
+                <0.9, 2.3, -8>  , <0.7, 2.6, -8> , <0.5, 2.3, -8>  , <0.3, 2.1, -8>,
+                <0,0, -8>  
+           }
+           } 
+           pigment {color rgb <0.1,0.1,0.1>}
+      }       
+    }
+
+//braço/sobretudo
+union{
+   cylinder { 
+    <1.3,3,-9>,<0.3,4,-9>, 0.3
+        translate x*-1  
+        translate z*0.4
+        translate y*-0.05
+   } 
+   texture { 
+       pigment { 
+            color rgb <0.25, 0.15, 0>
+           }  
+       } 
+}
+//braço/sobretudo
+union{
+   cylinder { 
+    <1.2,3,-9>,<0.3,4,-9>, 0.3
+        rotate z*90
+        translate x*3.2  
+        translate z*0.4
+        translate y*2
+   } 
+   texture { 
+       pigment { 
+            color rgb <0.25, 0.15, 0>
+           }  
+       } 
+}
+// mão 
+union{
+union{
+box { 
+    <-4.00, 3.00, -1.00>,
+    < -3.80, 4.00, 1.00>   
+    
+    texture { 
+        pigment{ 
+            color rgb<1.00, 1.00, 1.00> 
+            }  
+            finish { phong 1 reflection{ 0.00 metallic 0.00} } 
+              } 
+      scale <1,1,1> rotate<0,0,0> translate<0,0,0> 
+    }             
+}
+// dedo    
+box { 
+    <-3.20, 4.00, -1.00>,
+    < -3.80, 2.80, 1.00>   
+    
+    texture { 
+        pigment{ 
+            color rgb <0.25, 0.15, 0> 
+            }  
+            finish { phong 1 reflection{ 0.00 metallic 0.00} } 
+              } 
+      scale <1,1,1> rotate<0,0,0> translate<0,0,0> 
+    } 
+      
+ translate z*-2
+ translate y*-1.3  
+     }
+     
+//corpo
+union {
+box { 
+    <-1, 3.6, -1.00>,
+    < 0.6, 1, 0>   
+    
+    texture {  
+    pigment{ 
+        color rgb <0.25, 0.15, 0> 
+    }
+      scale <1,1,1> rotate<0,0,0> translate<0,0,0> 
+    } 
+    }
+ 
+    sphere{
+        <-0.7, 3, -1>,0.08
+        texture {
+            pigment {color White}
+        } 
+    }
+    
+    sphere{
+        <0.25, 3, -1>,0.08
+        texture {
+            pigment {color White}
+        } 
+    }
+    
+        sphere{
+        <-0.7, 2, -1>,0.08
+        texture {
+            pigment {color White}
+        } 
+    }
+    
+    sphere{
+        <0.25, 2, -1>,0.08
+        texture {
+            pigment {color White}
+        } 
+    }             
+    rotate y*15
+    translate x*-0.95
+    translate y*0.7 
+    translate z*-8
+    }
 }
